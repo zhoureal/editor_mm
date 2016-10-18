@@ -111,7 +111,8 @@ UE.plugins['table'] = function () {
         "insertparagraph":1,
         "insertparagraphbeforetable":1,
         "averagedistributecol":1,
-        "averagedistributerow":1
+        "averagedistributerow":1,
+        "clearcontent": 1
     };
     me.ready(function () {
         utils.cssRule('table',

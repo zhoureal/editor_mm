@@ -869,7 +869,7 @@
     };
     
     // hzzhouming 清除内容單元格內容
-    UE.commands["clearContent"] = {
+    UE.commands["clearcontent"] = {
         queryCommandState: function(){
             return 0;
         },
@@ -879,8 +879,6 @@
                     for (var i = 0, ci; ci = ut.selectedTds[i++];) {
                         domUtils.fillNode(this.document, ci)
                     }
-                    me.fireEvent('saveScene');
-                    domUtils.preventDefault(evt);
                 }
         }
     }
