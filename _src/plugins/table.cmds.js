@@ -34,7 +34,7 @@
                 for (var r = 0; r < rowsNum; r++) {
                     html.push('<tr' + (r == 0 ? ' class="firstRow"':'') + '>');
                     for (var c = 0; c < colsNum; c++) {
-                        html.push('<td style="padding:6px 6px; border: 1px solid #d3d3d3" width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
+                        html.push('<td style="padding:6px 6px; border: 1px solid #d3d3d3" width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (true ? domUtils.fillChar : '<br/>') + '</td>')
                         // html.push('<td  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
                     }
                     html.push('</tr>')
