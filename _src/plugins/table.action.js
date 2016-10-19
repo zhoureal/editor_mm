@@ -1445,6 +1445,8 @@ UE.plugins['table'] = function () {
                 } else {
                     range.selectNodeContents(cell).shrinkBoundary().setCursor(false, true);
                 }
+                var cells = document.getElementById("editor").contentWindow.document.getElementsByClassName("selectTdClass");
+                window.ue.selection.getRange().setStart(cells[0], 1).setCursor(false, true);
                 window.ue.blur();
             } else {
                 range = me.selection.getRange().shrinkBoundary();
