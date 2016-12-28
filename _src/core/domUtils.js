@@ -2158,7 +2158,7 @@ var domUtils = dom.domUtils = {
      * ```
      */
     fillNode:function (doc, node) {
-        var tmpNode = doc.createTextNode(domUtils.fillChar)
+        var tmpNode = browser.ie ? doc.createTextNode(domUtils.fillChar) : doc.createElement('br');
         node.innerHTML = '';
         node.appendChild(tmpNode);
     },

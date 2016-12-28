@@ -34,13 +34,13 @@
                 for (var r = 0; r < rowsNum; r++) {
                     html.push('<tr' + (r == 0 ? ' class="firstRow"':'') + '>');
                     for (var c = 0; c < colsNum; c++) {
-                        html.push('<td style="padding:6px 6px; border: 1px solid #8e9294" width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (true ? domUtils.fillChar : '<br/>') + '</td>')
+                        html.push('<td style="padding:6px 6px; border: 1px solid #8e9294" width="' + tdWidth + '"  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
                         // html.push('<td  vAlign="' + opt.tdvalign + '" >' + (browser.ie && browser.version < 11 ? domUtils.fillChar : '<br/>') + '</td>')
                     }
                     html.push('</tr>')
                 }
                 //禁止指定table-width
-                return '<table class = "mailTable" id="'+opt.id+'"style="border-collapse:collapse;margin-bottom:10px;" ><tbody>' + html.join('') + '</tbody></table>'
+                return '<table class = "mailTable" id="'+opt.id+'"style="border-collapse:collapse;margin-top:10px; margin-bottom: 10px" ><tbody>' + html.join('') + '</tbody></table>'
             }
 
             if (!opt) {
@@ -71,7 +71,7 @@
             var cell = document.getElementById("editor").contentWindow.document.getElementById(opt.id).rows[0].cells[0];
             me.selection.getRange().setStart(cell, 0).setCursor(false, true);
             //hzhzouming 通知客户端禁用插入表格
-            var sReq = { "method": "ui.setToolbarStatus", "params": {enableTable: false}};
+            var sReq = { "method": "ui.setToolbarStatus", "params": {enableTable: false, enableIndent: false, enableUnIndent:false}};
             sReq = JSON.stringify(sReq);
                 window.appHostRequest({
                     request: sReq,
