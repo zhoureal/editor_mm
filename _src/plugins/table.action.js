@@ -120,7 +120,7 @@ UE.plugins['table'] = function () {
             '.selectTdClass{background-color:#deefff !important}' +
                 'table.noBorderTable td,table.noBorderTable th,table.noBorderTable caption{border:1px dashed #8e9294 !important}' +
                 //插入的表格的默认样式
-                'table{margin-bottom:10px;border-collapse:collapse;display:table;}' +
+                'table{border-collapse:collapse;display:table;}' +
                 'td,th{padding: 6px 6px;border: 1px solid #fff;}' +
                 'caption{border:1px dashed #8e9294;border-bottom:0;padding:3px;text-align:center;}' +
                 'th{border-top:1px solid #BBB;background-color:#F7F7F7;}' +
