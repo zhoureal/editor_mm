@@ -89,11 +89,11 @@ UE.plugins['basestyle'] = function(){
         },
         me = this;
     //添加快捷键
-    me.addshortcutkey({
-        "Bold" : "ctrl+66",//^B
-        "Italic" : "ctrl+73", //^I
-        "Underline" : "ctrl+85"//^U
-    });
+    // me.addshortcutkey({
+    //     "Bold" : "ctrl+66",//^B
+    //     "Italic" : "ctrl+73", //^I
+    //     "Underline" : "ctrl+85"//^U
+    // });
     me.addInputRule(function(root){
         utils.each(root.getNodesByTagName('b i'),function(node){
             switch (node.tagName){
