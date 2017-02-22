@@ -138,9 +138,11 @@ UE.plugins['font'] = function () {
             'fontfamily': 'font-family',
             'underline': 'text-decoration',
             'strikethrough': 'text-decoration',
-            'fontborder': 'border'
+            'fontborder': 'border',
+            'fontbold': 'font-weight',
+            'fontitalic': 'font-style'
         },
-        needCmd = {'underline': 1, 'strikethrough': 1, 'fontborder': 1},
+        needCmd = {'underline': 1, 'strikethrough': 1, 'fontborder': 1 , 'fontbold': 1, 'fontitalic' : 1},
         needSetChild = {
             'forecolor': 'color',
             'backcolor': 'background-color',
@@ -355,8 +357,8 @@ UE.plugins['font'] = function () {
             UE.commands[cmd] = {
                 execCommand: function (cmdName, value) {
                     value = value || (this.queryCommandState(cmdName) ? 'none' : cmdName == 'underline' ? 'underline' :
-                        cmdName == 'fontborder' ? '1px solid #000' :
-                            'line-through');
+                        cmdName == 'fontborder' ? '1px solid #000' : cmdName == 'strikethrough' ?
+                            'line-through' : cmdName=="fontbold" ?  "bold" : "italic");
                     var me = this,
                         range = this.selection.getRange(),
                         text;
@@ -462,7 +464,7 @@ UE.plugins['font'] = function () {
                     var startNode = this.selection.getStart();
 
                     //trace:946
-                    if (cmdName == 'underline' || cmdName == 'strikethrough') {
+                    if (cmdName == 'underline' || cmdName == 'strikethrough'|| cmdName== 'fontbold' || cmdName == 'fontitalic') {
                         var tmpNode = startNode, value;
                         while (tmpNode && !domUtils.isBlockElm(tmpNode) && !domUtils.isBody(tmpNode)) {
                             if (tmpNode.nodeType == 1) {
@@ -513,8 +515,7 @@ UE.plugins['font'] = function () {
                     if (cmdName == 'fontborder') {
                         return /1px/.test(val) && /solid/.test(val)
                     } else {
-                        return  cmdName == 'underline' ? /underline/.test(val) : /line\-through/.test(val);
-
+                        return  cmdName == 'underline' ? /underline/.test(val) : cmdName == 'strikethrough' ? /line\-through/.test(val) : cmdName == 'fontbold' ? /bold/.test(val): /italic/.test(val);
                     }
 
                 }
