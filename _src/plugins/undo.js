@@ -230,11 +230,11 @@ UE.plugins['undo'] = function () {
         })
     });
     //快捷键
-    me.addshortcutkey({
-        "Undo":"ctrl+90", //undo
-        "Redo":"ctrl+89" //redo
+    // me.addshortcutkey({
+    //     "Undo":"ctrl+90", //undo
+    //     "Redo":"ctrl+89" //redo
 
-    });
+    // });
     var isCollapsed = true;
     me.addListener('keydown', function (type, evt) {
 
